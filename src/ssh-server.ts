@@ -1,5 +1,5 @@
 import { generateKeyPairSync } from "crypto";
-import { Server } from "ssh2";
+import { Server, type ServerChannel } from "ssh2";
 import { admitConnection, createIdleTimer, releaseConnection } from "./security/rateLimiter";
 import { renderPlainText } from "./ui/plainText";
 import { startTuiApp } from "./ui/app";
@@ -57,15 +57,12 @@ export function createSshServer(): Server {
           accept?.();
         });
 
-        // No exec, no SFTP, no forwarding — only an interactive/plain-text session.
-        // ssh2 auto-rejects any request type without a listener, but these are
+        // No SFTP, no forwarding — only an interactive/plain-text session.
+        // ssh2 auto-rejects any request type without a listener, but this is
         // explicit for auditability (see ADR 0002).
-        session.on("exec", (_accept, reject) => reject?.());
         session.on("sftp", (_accept, reject) => reject?.());
 
-        session.on("shell", (accept) => {
-          const stream = accept();
-
+        function startSession(stream: ServerChannel): void {
           const idle = createIdleTimer(() => stream.end());
           stream.on("data", () => idle.touch());
           stream.on("close", () => {
@@ -80,7 +77,16 @@ export function createSshServer(): Server {
             stream.exit(0);
             stream.end();
           }
-        });
+        }
+
+        session.on("shell", (accept) => startSession(accept()));
+
+        // Some clients send "exec" instead of "shell" even with no explicit
+        // command (e.g. certain non-OpenSSH clients, or a RemoteCommand in the
+        // client's config). Whatever command they asked for is ignored — this
+        // always just serves the CV, so accepting exec doesn't grant any real
+        // remote execution (see ADR 0002).
+        session.on("exec", (accept) => startSession(accept()));
       });
     });
 
