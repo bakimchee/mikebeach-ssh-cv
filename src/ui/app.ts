@@ -16,7 +16,15 @@ const MENU_ITEMS = ["About", "Experience", "Projects", "Skills", "Contact", "Qui
  * it's a duplex stream, so it doubles as blessed's input and output.
  */
 export function startTuiApp(stream: ServerChannel, pty: PtyInfo, visitorIp: string): void {
-  const program = blessed.program({ input: stream, output: stream, terminal: pty.term || "xterm-256color" });
+  // Every SSH client that matters speaks UTF-8; without this, blessed's terminfo
+  // detection routes non-ASCII characters (em dashes, curly quotes, …) through an
+  // ASCII-only translation table and silently drops anything it can't map to '?'.
+  const program = blessed.program({
+    input: stream,
+    output: stream,
+    terminal: pty.term || "xterm-256color",
+    forceUnicode: true,
+  });
   program.rows = pty.rows;
   program.cols = pty.cols;
 
@@ -25,6 +33,7 @@ export function startTuiApp(stream: ServerChannel, pty: PtyInfo, visitorIp: stri
     smartCSR: true,
     title: "mikebeach.co.uk",
     autoPadding: true,
+    fullUnicode: true,
   });
 
   const menu = blessed.list({
