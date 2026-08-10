@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+*.log
+host_key
+host_key.pub
+.claude/

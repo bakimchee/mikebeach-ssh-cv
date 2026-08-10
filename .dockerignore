@@ -1,0 +1,9 @@
+node_modules
+dist
+.git
+.env
+*.log
+*.md
+docs
+host_key
+host_key.pub
