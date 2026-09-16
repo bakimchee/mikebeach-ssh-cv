@@ -34,7 +34,8 @@ If you couldn't actually drive the TUI interactively, say so rather than reporti
 - `src/ssh-server.ts` — accepts every auth attempt, admits/rejects by IP, then routes `shell` and `exec` to one handler: pty → TUI, no pty → plain text.
 - `src/security/rateLimiter.ts` — in-memory per-IP limits (concurrent Sessions, connections per minute, idle timeout). State is per process.
 - `src/content.ts` — the single source of CV data.
-- `src/ui/sections.ts` (blessed-tagged, for the TUI) and `src/ui/plainText.ts` (for non-pty clients) both render `content.ts`. **Any content or shape change must be reflected in both.** A new menu section also needs `MENU_ITEMS` and `showSection` in `src/ui/app.ts`.
+- `src/ui/sections.ts` (blessed-tagged, for the TUI), `src/ui/plainText.ts` (for non-pty clients) and `src/ui/html.ts` (for browsers) all render `content.ts`. **Any content or shape change must be reflected in all three.** A new menu section also needs `MENU_ITEMS` and `showSection` in `src/ui/app.ts`, and a nav entry in `SECTIONS` in `html.ts`. Wording in `content.ts` is read on all three surfaces, so it has to stay true whichever one a Visitor is on.
+- `src/http-server.ts` — serves `ui/html.ts` on `HTTP_PORT` (ADR 0004). Read-only: one route, GET/HEAD only. The SSH hard rules below apply here too — don't add routes that accept Visitor input.
 - `src/contact/sendMessage.ts` — delivers a Message by email via Resend.
 
 ## Hard rules

@@ -7,6 +7,7 @@ primary_region = "lhr"
 [env]
   NODE_ENV = "production"
   PORT = "2222"
+  HTTP_PORT = "8080"
 
 [[services]]
   internal_port = 2222
@@ -14,6 +15,25 @@ primary_region = "lhr"
 
   [[services.ports]]
     port = 22
+
+  [[services.tcp_checks]]
+    interval = "15s"
+    timeout = "5s"
+    grace_period = "5s"
+
+# The HTML CV, for Visitors who arrive in a browser instead of a terminal.
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+    force_https = true
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
 
   [[services.tcp_checks]]
     interval = "15s"

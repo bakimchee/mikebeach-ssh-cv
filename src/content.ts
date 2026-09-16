@@ -116,7 +116,7 @@ export const projects: Project[] = [
   {
     name: "This CV",
     description:
-      "You're looking at it: a public, unauthenticated SSH server that renders this CV as an interactive TUI. There's no website; you just run `ssh mikebeach.co.uk`.",
+      "You're looking at it: a public, unauthenticated SSH server that renders this CV as an interactive TUI, plus a plain HTML page for anyone who'd rather stay in a browser. Run `ssh mikebeach.co.uk` for the interactive version.",
     url: "https://github.com/bakimchee/mikebeach-ssh-cv",
     tech: ["Node.js", "TypeScript", "ssh2", "blessed", "Fly.io"],
   },
