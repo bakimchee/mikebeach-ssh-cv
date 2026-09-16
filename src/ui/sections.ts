@@ -8,6 +8,7 @@ export function experienceText(): string {
   const lines: string[] = [];
   for (const job of experience) {
     lines.push(`{bold}${job.role}{/bold}, ${job.company}`, `{grey-fg}${job.period}{/grey-fg}`);
+    if (job.summary) lines.push("", job.summary, "");
     for (const highlight of job.highlights) lines.push(`  - ${highlight}`);
     lines.push("");
   }

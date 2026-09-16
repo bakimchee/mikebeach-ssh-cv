@@ -10,6 +10,7 @@ export function renderPlainText(): string {
   lines.push("Experience", "----------");
   for (const job of experience) {
     lines.push(`${job.role}, ${job.company} (${job.period})`);
+    if (job.summary) lines.push(job.summary, "");
     for (const highlight of job.highlights) lines.push(`  - ${highlight}`);
     lines.push("");
   }
