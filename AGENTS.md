@@ -61,7 +61,8 @@ Only edit `src/content.ts` with facts the owner supplies. Never invent or embell
 ## Git and deploys
 
 - Commit only when asked, directly to `main`. Messages: an imperative summary line, then a body explaining why (see `git log`).
-- Never deploy or change infrastructure — no `fly deploy`, `fly secrets`, `fly ips`, or DNS changes. The owner deploys.
+- **A push to `main` is a deploy.** Fly redeploys the live site on every push, so `git push` publishes to `ssh mikebeach.co.uk` and to the public GitHub repo at once. Push only when the owner asks for that push, never to tidy up at the end of some other task, and say what is about to go live before you do it.
+- Never run `fly deploy`, `fly secrets`, `fly ips`, or change DNS. Deploys ride on the push above; everything else about the infrastructure is the owner's.
 
 ## Agent skills
 
