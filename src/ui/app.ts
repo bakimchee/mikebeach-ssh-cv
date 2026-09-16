@@ -150,7 +150,9 @@ export function startTuiApp(stream: ServerChannel, pty: PtyInfo, visitorIp: stri
           screen.render();
         })
         .catch((err: Error) => {
-          status.setContent(`{red-fg}Failed to send: ${err.message}{/red-fg}`);
+          // The box parses tags, so an error message containing braces (a
+          // Resend API payload, say) would be read as markup and swallowed.
+          status.setContent(`{red-fg}Failed to send: ${blessed.escape(err.message)}{/red-fg}`);
           screen.render();
         });
     }
