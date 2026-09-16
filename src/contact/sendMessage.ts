@@ -19,7 +19,7 @@ export async function sendContactMessage({ name, message, visitorIp }: ContactMe
   const { error } = await resend.emails.send({
     to,
     from,
-    subject: `mikbeach.co.uk contact form: ${name}`,
+    subject: `mikebeach.co.uk contact form: ${name}`,
     text: `From: ${name}\nIP: ${visitorIp}\n\n${message}`,
   });
 

@@ -104,7 +104,7 @@ export function startTuiApp(stream: ServerChannel, pty: PtyInfo, visitorIp: stri
     content.setContent(contactInfoText());
 
     // Single-line textboxes chained via blessed's built-in Enter-to-submit
-    // behavior (Textbox emits "submit" on Enter). Deliberately not using Tab
+    // behaviour (Textbox emits "submit" on Enter). Deliberately not using Tab
     // to move focus, and not blessed.form — both interact badly with
     // Input's readInput()/inputOnFocus keypress handling.
     blessed.text({ parent: content, top: 6, left: 1, content: "Name (Enter to continue):" });

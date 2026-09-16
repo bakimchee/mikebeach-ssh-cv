@@ -1,4 +1,4 @@
-# mikbeach
+# Mike Beach
 
 An SSH-accessible engineering portfolio/CV, reachable by running `ssh mikebeach.co.uk` — no auth, no real shell, a TUI menu instead of a website.
 
