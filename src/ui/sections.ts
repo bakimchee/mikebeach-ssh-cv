@@ -1,4 +1,4 @@
-import { about, experience, profile, projects, skills } from "../content";
+import { about, education, experience, profile, projects, skills } from "../content";
 
 export function aboutText(): string {
   return [`{bold}${profile.name}{/bold}`, profile.tagline, profile.location, "", ...about].join("\n");
@@ -23,6 +23,15 @@ export function projectsText(): string {
     if (project.url) lines.push(`{cyan-fg}${project.url}{/cyan-fg}`);
     if (project.tech?.length) lines.push(`{grey-fg}${project.tech.join(", ")}{/grey-fg}`);
     lines.push("");
+  }
+  return lines.join("\n");
+}
+
+export function educationText(): string {
+  const lines: string[] = [];
+  for (const item of education) {
+    lines.push(`{bold}${item.title}{/bold}`, item.institution);
+    lines.push(`{grey-fg}${item.period}${item.grade ? `, ${item.grade}` : ""}{/grey-fg}`, "");
   }
   return lines.join("\n");
 }

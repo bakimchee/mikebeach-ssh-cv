@@ -1,4 +1,4 @@
-import { about, experience, profile, projects, skills } from "../content";
+import { about, education, experience, profile, projects, skills } from "../content";
 
 /** Rendered for clients that didn't request a pty (scripts, pipes, `ssh host < /dev/null`). */
 export function renderPlainText(): string {
@@ -22,6 +22,13 @@ export function renderPlainText(): string {
     if (project.tech?.length) lines.push(`  tech: ${project.tech.join(", ")}`);
     lines.push("");
   }
+
+  lines.push("Education", "---------");
+  for (const item of education) {
+    lines.push(`${item.title}, ${item.institution} (${item.period})`);
+    if (item.grade) lines.push(`  grade: ${item.grade}`);
+  }
+  lines.push("");
 
   lines.push("Skills", "------");
   lines.push(skills.join(", "), "");

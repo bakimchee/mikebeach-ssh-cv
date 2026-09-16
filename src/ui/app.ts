@@ -1,7 +1,7 @@
 import blessed from "blessed";
 import type { ServerChannel } from "ssh2";
 import { sendContactMessage } from "../contact/sendMessage";
-import { aboutText, contactInfoText, experienceText, projectsText, skillsText } from "./sections";
+import { aboutText, contactInfoText, educationText, experienceText, projectsText, skillsText } from "./sections";
 
 export interface PtyInfo {
   term: string;
@@ -9,7 +9,7 @@ export interface PtyInfo {
   cols: number;
 }
 
-const MENU_ITEMS = ["About", "Experience", "Projects", "Skills", "Contact", "Quit"] as const;
+const MENU_ITEMS = ["About", "Experience", "Projects", "Skills", "Education", "Contact", "Quit"] as const;
 
 /**
  * Wires a blessed TUI to an ssh2 shell channel. `stream` is the ssh2 Channel —
@@ -87,6 +87,10 @@ export function startTuiApp(stream: ServerChannel, pty: PtyInfo, visitorIp: stri
         return;
       case "Skills":
         content.setContent(skillsText());
+        screen.render();
+        return;
+      case "Education":
+        content.setContent(educationText());
         screen.render();
         return;
       case "Contact":
