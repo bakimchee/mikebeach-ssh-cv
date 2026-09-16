@@ -22,6 +22,45 @@ function link(url: string, text = url): string {
   return `<a href="${escapeHtml(url)}">${escapeHtml(text)}</a>`;
 }
 
+/**
+ * schema.org Person, so tools reading this page get typed facts instead of
+ * having to infer them from the prose — in particular who I currently work for
+ * and which "Mike Beach" this is (that's what sameAs is for).
+ *
+ * Inert data, never executed. Built from `content.ts` like every other
+ * renderer here, so it can't drift from the visible page.
+ *
+ * Employment history deliberately isn't modelled: schema.org has no clean
+ * employer-plus-dates shape for a Person, and a bad approximation would be
+ * worse than the prose below, which reads perfectly well.
+ */
+function structuredData(): string {
+  const current = experience.find((job) => /present/i.test(job.period));
+
+  const person = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: profile.name,
+    jobTitle: profile.tagline,
+    description: about.join(" "),
+    email: `mailto:${profile.email}`,
+    url: profile.links.website,
+    address: profile.location,
+    sameAs: [profile.links.github, profile.links.linkedin],
+    ...(current ? { worksFor: { "@type": "Organization", name: current.company } } : {}),
+    alumniOf: education.map((item) => ({
+      "@type": "CollegeOrUniversity",
+      name: item.institution,
+    })),
+    knowsAbout: skills,
+  };
+
+  // Escaping `<` keeps a stray "</script>" in the content from closing the tag early.
+  // Note this is JSON, not markup — escapeHtml would corrupt it.
+  const json = JSON.stringify(person, null, 2).replace(/</g, "\\u003c");
+  return `  <script type="application/ld+json">\n${json}\n  </script>`;
+}
+
 /** Menu order matches MENU_ITEMS in `app.ts`, so the page reads like the TUI. */
 const SECTIONS = ["About", "Experience", "Projects", "Skills", "Education", "Contact"] as const;
 
@@ -118,11 +157,12 @@ export function renderHtml(): string {
     '  <meta name="viewport" content="width=device-width, initial-scale=1">',
     `  <title>${escapeHtml(`${profile.name} — ${profile.tagline}`)}</title>`,
     `  <meta name="description" content="${escapeHtml(`${profile.tagline} in ${profile.location}.`)}">`,
+    structuredData(),
     "</head>",
     "<body>",
     `  <h1>${escapeHtml(profile.name)}</h1>`,
     `  <p>${escapeHtml(profile.tagline)}<br>${escapeHtml(profile.location)}</p>`,
-    "  <p>This CV is meant to be read over SSH — run <code>ssh mikebeach.co.uk</code> for the interactive version.</p>",
+    "  <p>This CV is meant to be read over SSH — run <code>ssh mikebeach.co.uk</code> for the interactive version. There's a markup-free copy at <a href=\"/cv.txt\">/cv.txt</a>.</p>",
     navigation(),
     "  <hr>",
     aboutSection(),
