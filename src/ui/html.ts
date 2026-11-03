@@ -162,7 +162,7 @@ export function renderHtml(): string {
     "<body>",
     `  <h1>${escapeHtml(profile.name)}</h1>`,
     `  <p>${escapeHtml(profile.tagline)}<br>${escapeHtml(profile.location)}</p>`,
-    "  <p>This CV is meant to be read over SSH — run <code>ssh mikebeach.co.uk</code> for the interactive version. There's a markup-free copy at <a href=\"/cv.txt\">/cv.txt</a>.</p>",
+    "  <p>This CV is meant to be read over SSH — run <code>ssh mikebeach.co.uk</code> for the interactive version. There's a markup-free copy at <a href=\"/cv.txt\">/cv.txt</a> and a printable one at <a href=\"/cv.pdf\">/cv.pdf</a>.</p>",
     navigation(),
     "  <hr>",
     aboutSection(),

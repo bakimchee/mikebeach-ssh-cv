@@ -1,6 +1,7 @@
 import http from "node:http";
 import { renderPlainText } from "./ui/plainText";
 import { renderHtml } from "./ui/html";
+import { renderPdf } from "./ui/pdf";
 
 /**
  * Serves the CV as one HTML page for Visitors who arrive in a browser rather
@@ -13,6 +14,7 @@ import { renderHtml } from "./ui/html";
 
 const HTML = "text/html; charset=utf-8";
 const TEXT = "text/plain; charset=utf-8";
+const PDF = "application/pdf";
 
 const robotsTxt = [
   "# The CV is meant to be read. Crawl away.",
@@ -20,19 +22,25 @@ const robotsTxt = [
   "Allow: /",
   "",
   "# Markup-free version of this page: /cv.txt",
+  "# Printable version: /cv.pdf",
   "",
 ].join("\n");
 
 // Content is static, so every response body is built once at boot.
 // `/cv.txt` reuses the no-pty renderer rather than introducing another copy of
 // the CV — it's the same text `ssh -T mikebeach.co.uk` returns.
-const routes = new Map<string, { body: string; type: string }>([
-  ["/", { body: renderHtml(), type: HTML }],
-  ["/cv.txt", { body: renderPlainText(), type: TEXT }],
-  ["/robots.txt", { body: robotsTxt, type: TEXT }],
-]);
+// pdfkit streams its output, so the PDF is the one body that has to be awaited.
+async function buildRoutes(): Promise<Map<string, { body: string | Buffer; type: string }>> {
+  return new Map<string, { body: string | Buffer; type: string }>([
+    ["/", { body: renderHtml(), type: HTML }],
+    ["/cv.txt", { body: renderPlainText(), type: TEXT }],
+    ["/cv.pdf", { body: await renderPdf(), type: PDF }],
+    ["/robots.txt", { body: robotsTxt, type: TEXT }],
+  ]);
+}
 
-export function createHttpServer(): http.Server {
+export async function createHttpServer(): Promise<http.Server> {
+  const routes = await buildRoutes();
   return http.createServer((req, res) => {
     if (req.method !== "GET" && req.method !== "HEAD") {
       res.writeHead(405, { "content-type": TEXT, allow: "GET, HEAD" });

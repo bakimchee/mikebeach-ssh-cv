@@ -13,7 +13,8 @@ server.listen(port, "0.0.0.0", () => {
   console.log(`SSH portfolio listening on :${port}`);
 });
 
-const httpServer = createHttpServer();
-httpServer.listen(httpPort, "0.0.0.0", () => {
-  console.log(`HTTP portfolio listening on :${httpPort}`);
+createHttpServer().then((httpServer) => {
+  httpServer.listen(httpPort, "0.0.0.0", () => {
+    console.log(`HTTP portfolio listening on :${httpPort}`);
+  });
 });
