@@ -37,6 +37,7 @@ export function renderPlainText(): string {
   lines.push(`Email:    ${profile.email}`);
   lines.push(`GitHub:   ${profile.links.github}`);
   lines.push(`LinkedIn: ${profile.links.linkedin}`);
+  lines.push(`CV (PDF): ${profile.links.website}/cv.pdf`);
   lines.push("");
   lines.push("(connect with a real terminal for the interactive version)");
 

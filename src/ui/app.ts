@@ -107,14 +107,19 @@ export function startTuiApp(stream: ServerChannel, pty: PtyInfo, visitorIp: stri
   function showContactForm(): void {
     content.setContent(contactInfoText());
 
+    // The form sits one blank row below the contact details, wherever they end,
+    // so adding a contact line, or a narrow terminal wrapping one, can't push the
+    // text under it. setContent has already wrapped the text to the box's width.
+    const top = content.getScreenLines().length + 1;
+
     // Single-line textboxes chained via blessed's built-in Enter-to-submit
     // behaviour (Textbox emits "submit" on Enter). Deliberately not using Tab
     // to move focus, and not blessed.form — both interact badly with
     // Input's readInput()/inputOnFocus keypress handling.
-    blessed.text({ parent: content, top: 6, left: 1, content: "Name (Enter to continue):" });
+    blessed.text({ parent: content, top, left: 1, content: "Name (Enter to continue):" });
     const nameInput = blessed.textbox({
       parent: content,
-      top: 7,
+      top: top + 1,
       left: 1,
       width: "95%-2",
       height: 1,
@@ -122,10 +127,10 @@ export function startTuiApp(stream: ServerChannel, pty: PtyInfo, visitorIp: stri
       style: { fg: "white", bg: "blue" },
     });
 
-    blessed.text({ parent: content, top: 9, left: 1, content: "Message (Enter to send):" });
+    blessed.text({ parent: content, top: top + 3, left: 1, content: "Message (Enter to send):" });
     const messageInput = blessed.textbox({
       parent: content,
-      top: 10,
+      top: top + 4,
       left: 1,
       width: "95%-2",
       height: 1,
@@ -133,7 +138,7 @@ export function startTuiApp(stream: ServerChannel, pty: PtyInfo, visitorIp: stri
       style: { fg: "white", bg: "blue" },
     });
 
-    const status = blessed.text({ parent: content, top: 12, left: 1, content: "", tags: true });
+    const status = blessed.text({ parent: content, top: top + 6, left: 1, content: "", tags: true });
 
     function send(name: string, message: string): void {
       if (!name.trim() || !message.trim()) {
