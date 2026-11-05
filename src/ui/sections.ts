@@ -45,6 +45,8 @@ export function contactInfoText(): string {
     `Email:    {cyan-fg}${profile.email}{/cyan-fg}`,
     `GitHub:   {cyan-fg}${profile.links.github}{/cyan-fg}`,
     `LinkedIn: {cyan-fg}${profile.links.linkedin}{/cyan-fg}`,
+    `CV (PDF): {cyan-fg}${profile.links.website}/cv.pdf{/cyan-fg}`,
+    `CV (TXT): {cyan-fg}${profile.links.website}/cv.txt{/cyan-fg}`,
     "",
     "Or leave a message below and it'll land straight in my inbox:",
   ].join("\n");
