@@ -71,7 +71,15 @@ export function startTuiApp(stream: ServerChannel, pty: PtyInfo, visitorIp: stri
     style: { border: { fg: "grey" } },
   });
 
+  // Widgets the Contact form adds to `content`. Every section only replaces the
+  // box's text, so without this they'd stay drawn over whichever section comes
+  // next, and each return to Contact would stack another form on top.
+  let contactForm: blessed.Widgets.BlessedElement[] = [];
+
   function showSection(name: (typeof MENU_ITEMS)[number]): void {
+    for (const widget of contactForm) widget.destroy();
+    contactForm = [];
+
     switch (name) {
       case "About":
         content.setContent(aboutText());
@@ -116,7 +124,7 @@ export function startTuiApp(stream: ServerChannel, pty: PtyInfo, visitorIp: stri
     // behaviour (Textbox emits "submit" on Enter). Deliberately not using Tab
     // to move focus, and not blessed.form — both interact badly with
     // Input's readInput()/inputOnFocus keypress handling.
-    blessed.text({ parent: content, top, left: 1, content: "Name (Enter to continue):" });
+    const nameLabel = blessed.text({ parent: content, top, left: 1, content: "Name (Enter to continue):" });
     const nameInput = blessed.textbox({
       parent: content,
       top: top + 1,
@@ -127,7 +135,7 @@ export function startTuiApp(stream: ServerChannel, pty: PtyInfo, visitorIp: stri
       style: { fg: "white", bg: "blue" },
     });
 
-    blessed.text({ parent: content, top: top + 3, left: 1, content: "Message (Enter to send):" });
+    const messageLabel = blessed.text({ parent: content, top: top + 3, left: 1, content: "Message (Enter to send):" });
     const messageInput = blessed.textbox({
       parent: content,
       top: top + 4,
@@ -139,6 +147,7 @@ export function startTuiApp(stream: ServerChannel, pty: PtyInfo, visitorIp: stri
     });
 
     const status = blessed.text({ parent: content, top: top + 6, left: 1, content: "", tags: true });
+    contactForm = [nameLabel, nameInput, messageLabel, messageInput, status];
 
     function send(name: string, message: string): void {
       if (!name.trim() || !message.trim()) {
