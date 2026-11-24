@@ -69,7 +69,7 @@ function navigation(): string {
   const items = SECTIONS.map(
     (name) => `      <li><a href="#${name.toLowerCase()}">${name}</a></li>`,
   );
-  return ["  <nav>", "    <ul>", ...items, "    </ul>", "  </nav>"].join("\n");
+  return ['  <nav aria-label="Sections">', '    <ul class="inline-list" role="list">', ...items, "    </ul>", "  </nav>"].join("\n");
 }
 
 function aboutSection(): string {
@@ -82,7 +82,7 @@ function experienceSection(): string {
   for (const job of experience) {
     lines.push("    <article>");
     lines.push(`      <h3>${escapeHtml(job.role)}</h3>`);
-    lines.push(`      <p>${escapeHtml(job.company)}<br>${escapeHtml(job.period)}</p>`);
+    lines.push(`      <p class="meta">${escapeHtml(job.company)}<br>${escapeHtml(job.period)}</p>`);
     if (job.summary) lines.push(`      <p>${escapeHtml(job.summary)}</p>`);
     lines.push("      <ul>");
     for (const highlight of job.highlights) {
@@ -102,7 +102,7 @@ function projectsSection(): string {
     lines.push(`      <p>${escapeHtml(project.description)}</p>`);
     if (project.url) lines.push(`      <p>${link(project.url)}</p>`);
     if (project.tech?.length) {
-      lines.push(`      <p>${escapeHtml(project.tech.join(", "))}</p>`);
+      lines.push(`      <p class="meta">${escapeHtml(project.tech.join(", "))}</p>`);
     }
     lines.push("    </article>");
   }
@@ -115,7 +115,7 @@ function skillsSection(): string {
   return [
     "  <section id=\"skills\">",
     "    <h2>Skills</h2>",
-    "    <ul>",
+    '    <ul class="inline-list tags" role="list">',
     ...items,
     "    </ul>",
     "  </section>",
@@ -128,7 +128,7 @@ function educationSection(): string {
     lines.push("    <article>");
     lines.push(`      <h3>${escapeHtml(item.title)}</h3>`);
     const detail = `${item.institution}, ${item.period}${item.grade ? `, ${item.grade}` : ""}`;
-    lines.push(`      <p>${escapeHtml(detail)}</p>`);
+    lines.push(`      <p class="meta">${escapeHtml(detail)}</p>`);
     lines.push("    </article>");
   }
   lines.push("  </section>");
@@ -164,7 +164,7 @@ export function renderHtml(): string {
     "<body>",
     '<div class="container">',
     `  <h1>${escapeHtml(profile.name)}</h1>`,
-    `  <p>${escapeHtml(profile.tagline)}<br>${escapeHtml(profile.location)}</p>`,
+    `  <p class="meta">${escapeHtml(profile.tagline)}<br>${escapeHtml(profile.location)}</p>`,
     "  <p>This CV is meant to be read over SSH — run <code>ssh mikebeach.co.uk</code> for the interactive version. There's a markup-free copy at <a href=\"/cv.txt\">/cv.txt</a> and a printable one at <a href=\"/cv.pdf\">/cv.pdf</a>.</p>",
     navigation(),
     "  <hr>",

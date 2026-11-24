@@ -2,16 +2,81 @@
  * Minimal styles for the HTML page: a light reset, one readable column and a
  * system font stack. No web fonts, no scripts, nothing to download beyond this
  * file. Served at /styles.css (see http-server.ts).
+ *
+ * The page must still read fine if this file never loads, so everything here
+ * is presentation only: the HTML carries the structure and meaning on its own.
+ *
+ * Every colour below was checked against WCAG 2.2 contrast minimums. The
+ * measured ratio sits next to each token, so a change can be re-checked.
  */
 
 /* Design tokens */
 :root {
+  /*
+   * Tell the browser the page supports both schemes, so form controls,
+   * scrollbars and the default canvas follow the Visitor's system setting.
+   */
+  color-scheme: light dark;
+
+  /* Page background and body text: 17.4:1, well above the 4.5:1 for text (SC 1.4.3). */
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+
+  /*
+   * Secondary text (company names, dates, location). Softer than body text so
+   * job titles stand out, but still 7.0:1 against the background, which clears
+   * the 4.5:1 text minimum with room to spare.
+   */
+  --color-text-muted: #595959;
+
   /*
    * #949494 is the lightest grey that still meets WCAG 2.2's 3:1 minimum
    * contrast for non-text content (SC 1.4.11) against the white background:
    * it measures 3.03:1. Anything paler, such as #d4d4d4 at 1.48:1, would fail.
    */
   --color-divider: #949494;
+
+  /*
+   * Links: 6.39:1 against white, and 9.14:1 on hover. Links are also
+   * underlined, so they never rely on colour alone (SC 1.4.1).
+   */
+  --color-link: #0b57d0;
+  --color-link-hover: #0842a0;
+
+  /*
+   * Keyboard focus ring. It reuses the link colour, which is well above the
+   * 3:1 needed for a focus indicator to be visible (SC 2.4.7, SC 1.4.11).
+   */
+  --color-focus: var(--color-link);
+
+  /* One column at a comfortable reading length: roughly 65 characters a line. */
+  --measure: 65ch;
+}
+
+/*
+ * Dark mode follows the Visitor's system setting. Only the token values
+ * change, and each one was re-measured against the dark background.
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* 15.86:1 for body text. */
+    --color-bg: #121212;
+    --color-text: #ececec;
+
+    /* 7.88:1 for secondary text. */
+    --color-text-muted: #a8a8a8;
+
+    /*
+     * On a dark background the divider has to be dark enough to stay subtle
+     * but light enough to be seen: #616161 is the darkest grey that meets the
+     * 3:1 non-text minimum against #121212 (3.02:1).
+     */
+    --color-divider: #616161;
+
+    /* 8.89:1, and 11.35:1 on hover. */
+    --color-link: #8ab4f8;
+    --color-link-hover: #aecbfa;
+  }
 }
 
 /* Reset */
@@ -66,24 +131,84 @@ h3 {
   text-wrap: balance;
 }
 
+/*
+ * Motion. The section links jump within the page, so smooth scrolling makes
+ * it clear where they went. It's only switched on for Visitors who haven't
+ * asked their system for reduced motion (SC 2.3.3).
+ */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/*
+ * For Visitors who have asked for reduced motion, cut any animation or
+ * transition down to effectively nothing, including any added later.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Typography */
 body {
   font-family: system-ui, sans-serif;
   font-weight: normal;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
-/* Layout: one column at a comfortable reading length (roughly 65 characters a line) */
+/*
+ * Headings scale with the viewport between a minimum and a maximum, so the
+ * name is large on a desktop without wrapping awkwardly on a phone. The rem
+ * part of each clamp() keeps them responsive to the Visitor's font size too.
+ */
+h1 {
+  font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+/* Secondary details (company, dates, location) step back so titles lead. */
+.meta {
+  color: var(--color-text-muted);
+}
+
+a {
+  color: var(--color-link);
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+/*
+ * A clear focus ring for keyboard users. :focus-visible shows it for keyboard
+ * navigation but not for mouse clicks, and the offset keeps it off the text.
+ */
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Layout: one column at a comfortable reading length */
 .container {
-  max-width: 65ch;
+  max-width: var(--measure);
   margin-inline: auto;
   padding: 2rem 1rem;
-}
-
-/* Section dividers: a single thin line */
-hr {
-  height: 0;
-  border: 0;
-  border-block-start: 1px solid var(--color-divider);
 }
 
 /* The reset removes default margins, so space consecutive elements back out */
@@ -93,4 +218,60 @@ hr {
 
 :where(.container) li + li {
   margin-block-start: 0.25em;
+}
+
+/*
+ * Extra space around the section dividers, so each section reads as its own
+ * block rather than one long run of evenly spaced lines.
+ */
+.container > hr,
+.container > hr + section {
+  margin-block-start: 2.5rem;
+}
+
+/* A little more room between jobs than between the lines within one. */
+article + article {
+  margin-block-start: 1.75em;
+}
+
+/* Section dividers: a single thin line */
+hr {
+  height: 0;
+  border: 0;
+  border-block-start: 1px solid var(--color-divider);
+}
+
+/*
+ * Horizontal lists, used for the section links and the skills.
+ *
+ * The HTML gives these lists role="list", because Safari stops announcing a
+ * list to screen readers once its bullets are removed with list-style: none.
+ */
+.inline-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+/* Flex gap handles the spacing, so drop the stacked-list margins. */
+.inline-list > li {
+  margin: 0;
+}
+
+/*
+ * Skills as small tags: a long, narrow list becomes a short block that's
+ * quicker to scan. The border is decorative, so the tag text (body colour)
+ * carries the contrast.
+ */
+.tags {
+  gap: 0.5rem;
+}
+
+.tags > li {
+  padding: 0.125rem 0.625rem;
+  border: 1px solid var(--color-divider);
+  border-radius: 999px;
+  font-size: 0.875rem;
 }
