@@ -111,6 +111,14 @@ How the CV reads, on every surface. `content.ts` is the source, so these rules a
 
 Only edit `src/content.ts` with facts the owner supplies. Never invent or embellish roles, dates, highlights, projects or skills, and keep the first-person voice in `about`.
 
+## Job applications stay private
+
+This repo is public, so it never shows which jobs Mike is applying for.
+
+- Never name a prospective employer, a job title being applied for, or an application in commits, branch names, PR titles or descriptions, code comments, docs or `content.ts`. Describe CV changes generically ("adds design token experience"), not by the role that prompted them ("for the Acme application").
+- Tailored copies of the CV for a specific application (`content.<employer>.ts`) and cover letters never go in this repo. `.gitignore` blocks `content.*.ts` as a safety net. Keep them somewhere private.
+- Facts from an application conversation can go into the general CV, under the facts-only rule above, as long as nothing in the change points back to the application.
+
 ## Git and deploys
 
 - Commit only when asked, directly to `main`. Messages: an imperative summary line, then a body explaining why (see `git log`).
