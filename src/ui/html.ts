@@ -2,8 +2,9 @@ import { about, education, experience, profile, projects, skills } from "../cont
 
 /**
  * Renders the CV as a single plain HTML document for Visitors arriving over HTTP
- * instead of SSH. Deliberately styleless — no CSS, no scripts — so it stays
- * readable in any browser and needs no build step beyond `tsc`.
+ * instead of SSH. No scripts, and only the minimal stylesheet in `styles.css`
+ * (a reset, one readable column and a system font stack), so it stays readable
+ * in any browser, and still reads fine if the stylesheet never loads.
  *
  * Third renderer of `content.ts`, alongside `sections.ts` (TUI) and
  * `plainText.ts` (no-pty); a content or shape change belongs in all three.
@@ -157,9 +158,11 @@ export function renderHtml(): string {
     '  <meta name="viewport" content="width=device-width, initial-scale=1">',
     `  <title>${escapeHtml(`${profile.name} — ${profile.tagline}`)}</title>`,
     `  <meta name="description" content="${escapeHtml(`${profile.tagline} in ${profile.location}.`)}">`,
+    '  <link rel="stylesheet" href="/styles.css">',
     structuredData(),
     "</head>",
     "<body>",
+    '<div class="container">',
     `  <h1>${escapeHtml(profile.name)}</h1>`,
     `  <p>${escapeHtml(profile.tagline)}<br>${escapeHtml(profile.location)}</p>`,
     "  <p>This CV is meant to be read over SSH — run <code>ssh mikebeach.co.uk</code> for the interactive version. There's a markup-free copy at <a href=\"/cv.txt\">/cv.txt</a> and a printable one at <a href=\"/cv.pdf\">/cv.pdf</a>.</p>",
@@ -176,6 +179,7 @@ export function renderHtml(): string {
     educationSection(),
     "  <hr>",
     contactSection(),
+    "</div>",
     "</body>",
     "</html>",
     "",

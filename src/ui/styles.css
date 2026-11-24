@@ -1,0 +1,79 @@
+/*
+ * Minimal styles for the HTML page: a light reset, one readable column and a
+ * system font stack. No web fonts, no scripts, nothing to download beyond this
+ * file. Served at /styles.css (see http-server.ts).
+ */
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+p,
+li {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+/* Typography */
+body {
+  font-family: system-ui, sans-serif;
+  font-weight: normal;
+}
+
+/* Layout: one column at a comfortable reading length (roughly 65 characters a line) */
+.container {
+  max-width: 65ch;
+  margin-inline: auto;
+  padding: 2rem 1rem;
+}
+
+/* The reset removes default margins, so space consecutive elements back out */
+:where(.container) * + * {
+  margin-block-start: 0.75em;
+}
+
+:where(.container) li + li {
+  margin-block-start: 0.25em;
+}

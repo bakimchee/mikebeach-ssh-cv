@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && cp src/ui/styles.css dist/ui/styles.css",
     "start": "node dist/index.js",
     "typecheck": "tsc --noEmit"
   },
