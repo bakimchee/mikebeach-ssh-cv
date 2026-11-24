@@ -4,6 +4,16 @@
  * file. Served at /styles.css (see http-server.ts).
  */
 
+/* Design tokens */
+:root {
+  /*
+   * #949494 is the lightest grey that still meets WCAG 2.2's 3:1 minimum
+   * contrast for non-text content (SC 1.4.11) against the white background:
+   * it measures 3.03:1. Anything paler, such as #d4d4d4 at 1.48:1, would fail.
+   */
+  --color-divider: #949494;
+}
+
 /* Reset */
 *,
 *::before,
@@ -69,14 +79,11 @@ body {
   padding: 2rem 1rem;
 }
 
-/*
- * Section dividers: a single thin line. #949494 is the lightest grey that
- * still meets WCAG's 3:1 contrast for non-text content against white.
- */
+/* Section dividers: a single thin line */
 hr {
   height: 0;
   border: 0;
-  border-block-start: 1px solid #949494;
+  border-block-start: 1px solid var(--color-divider);
 }
 
 /* The reset removes default margins, so space consecutive elements back out */
