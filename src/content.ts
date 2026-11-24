@@ -34,7 +34,7 @@ export const profile = {
 };
 
 export const about: string[] = [
-  "Engineering manager for the Fable Design System at Sainsbury's, after progressing from software engineer to senior engineer and then into leadership. I build accessible frontend platforms and scale a multi-brand design system across web, iOS and Android. I manage the engineers, and bring AI-assisted development workflows into how we build.",
+  "Engineering manager for the Fable Design System at Sainsbury's, after progressing from software engineer to senior engineer and then into leadership. I build accessible front-end platforms and scale a multi-brand design system across web, iOS and Android. I manage the engineers, and bring AI-assisted development workflows into how we build.",
   "I care about UI that stays accessible and consistent as it grows: reusable components, design tokens, and the documentation and workflows that get a design system actually adopted. I've worked across React, TypeScript, JavaScript, CSS and Node.js, and I still like building things end to end. This CV is one of them.",
 ];
 
@@ -52,11 +52,11 @@ export const experience: Job[] = [
       "Set up Style Dictionary to generate design tokens for multiple brands, fed by the Figma API so designers have the source of truth",
       "Work closely with designers who build design systems in Sketch and Figma",
       "Built Figma plugins that measure design system adoption in a Figma file, to help the handover from design to development",
-      "Creating AI skills in Figma",
+      "Create AI skills in Figma",
       "Helped introduce the Fable MCP package in January 2026, so AI-assisted tools work from approved components and design tokens",
       "Lead \"AI Assisted Engineering\" demos across engineering at Sainsbury's",
       "Set up our design systems in Vercel's v0, and gave detailed feedback on how it integrated as part of the v0 beta",
-      "Lead work on AI-assisted engineering workflows, design-system analytics, platform migrations and adoption measurement",
+      "Lead work on AI-assisted engineering workflows, design system analytics, platform migrations and adoption measurement",
       "Manage engineers day to day, including recruitment and colleague development",
       "Coordinated the Luna registry migration across the organisation in March and April 2026: found the affected repositories, communicated the risks and tracked it to completion",
     ],
@@ -67,14 +67,14 @@ export const experience: Job[] = [
     period: "July 2021 – March 2024",
     highlights: [
       "Built Fable as React components in TypeScript, optimised for use across Next.js and React applications. TypeScript was a main driver, as the previous design system, Luna, was JavaScript only",
-      "Took on technical leadership, owning more of the engineering standards, shared components and design-system adoption",
+      "Took on technical leadership, owning more of the engineering standards, shared components and design system adoption",
       "Advised engineers and delivery teams on implementation, accessibility, reusable components and migration planning",
       "Used Storybook extensively for the component library, and set up Chromatic for visual regression testing",
       "Built an alternative visual regression setup using Vercel and GitHub Actions",
       "Brought sites up to WCAG AA, with automated accessibility tests using Jest and axe-core",
       "Used Lighthouse to audit performance and accessibility",
       "Worked closely with Evinced to set up their accessibility unit testing tool, and gave feedback during their beta",
-      "Worked with engineering, product and design to turn design-system strategy into technical plans teams could build on",
+      "Worked with engineering, product and design to turn design system strategy into technical plans teams could build on",
       "Grew into stakeholder management, delivery coordination and mentoring alongside the engineering work",
     ],
   },
@@ -83,8 +83,7 @@ export const experience: Job[] = [
     company: "Sainsbury's",
     period: "March 2019 – July 2021",
     highlights: [
-      "Built in React and TypeScript",
-      "Built and maintained customer-facing web experiences on shared component libraries",
+      "Built and maintained customer-facing web experiences in React and TypeScript, on shared component libraries",
       "Contributed reusable components, design tokens, accessibility improvements and engineering documentation",
       "Kept the UI consistent alongside designers, product managers and engineers",
       "Learned automated testing, CI/CD, Agile delivery and production support",
@@ -100,11 +99,11 @@ export const experience: Job[] = [
       "Built with Angular 2 for PwC and AngularJS on other projects, in JavaScript and early TypeScript",
       "Did a lot of the design work in code, alongside the front-end development",
       "Designed and developed for PPG Europe, using their brand guidelines and existing designed pages to extend their external site, internal sites and business-facing (B2B) sites",
-      "Shaped the CMS architecture on Umbraco, and earned official Umbraco level 1 and 2 certifications",
+      "Shaped the CMS architecture on Umbraco, and earned official Umbraco Level 1 and Level 2 certifications",
     ],
   },
   {
-    role: "Trainee Web Designer, then New Media Designer and Developer",
+    role: "Trainee Web Designer and Front End Developer",
     company: "Liverpool City Council (LDL)",
     period: "October 2011 – March 2014",
     summary: "Practically a front-end developer, before the term was widely adopted.",
