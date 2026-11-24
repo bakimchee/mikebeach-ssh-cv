@@ -169,6 +169,7 @@ export function renderHtml(): string {
     `  <h1>${escapeHtml(profile.name)}</h1>`,
     `  <p class="meta">${escapeHtml(profile.tagline)}<br>${escapeHtml(profile.location)}</p>`,
     "  <p>The interactive version of this CV runs over SSH: <code>ssh mikebeach.co.uk</code>. There's also a plain-text copy at <a href=\"/cv.txt\">/cv.txt</a> and a printable PDF at <a href=\"/cv.pdf\">/cv.pdf</a>.</p>",
+    "  <p>To use this CV with an AI agent, point it at <a href=\"/cv.json\">/cv.json</a>: the full CV as JSON, fetched with a plain GET request and no API key. There's a short guide for AI tools at <a href=\"/llms.txt\">/llms.txt</a>.</p>",
     navigation(),
     "  <hr>",
     aboutSection(),
