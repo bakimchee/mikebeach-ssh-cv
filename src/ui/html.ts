@@ -160,8 +160,11 @@ function contactSection(): string {
 
 /**
  * "Summarise this CV with AI": one prompt a Visitor can paste into an AI
- * assistant, which sends it to `/llms.txt` for instructions. A <details> element gives a
- * button that opens and closes with no script, in keeping with ADR 0004.
+ * assistant, pointing it straight at `/cv.txt`. That's one fetch of plain text,
+ * which any assistant can read. Going via `/llms.txt` then `/cv.json` took two
+ * fetches, and each one is another chance for an assistant's fetch rules to
+ * refuse it. A <details> element gives a button that opens and closes with no
+ * script, in keeping with ADR 0004.
  *
  * Below the prompt, plain links open Claude or ChatGPT with the prompt already
  * typed in, via their `?q=` parameter. Neither service documents that
@@ -169,7 +172,7 @@ function contactSection(): string {
  * above it still works by copy and paste.
  */
 function summariseWithAi(): string {
-  const prompt = `Summarise ${profile.name}'s CV. Fetch ${profile.links.website}/llms.txt and follow it.`;
+  const prompt = `Summarise ${profile.name}'s CV at ${profile.links.website}/cv.txt`;
   return [
     '  <details class="ai-summary">',
     "    <summary>Summarise this CV with AI</summary>",
