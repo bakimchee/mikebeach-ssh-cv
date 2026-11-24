@@ -150,16 +150,16 @@ function contactSection(): string {
 }
 
 /**
- * "Onboard your AI agent": one prompt a Visitor can paste into their agent,
- * which sends it to `/llms.txt` for instructions. A <details> element gives a
+ * "Summarise this CV with AI": one prompt a Visitor can paste into an AI
+ * assistant, which sends it to `/llms.txt` for instructions. A <details> element gives a
  * button that opens and closes with no script, in keeping with ADR 0004.
  */
-function agentOnboarding(): string {
-  const prompt = `Read ${profile.name}'s CV. Fetch ${profile.links.website}/llms.txt and follow it.`;
+function summariseWithAi(): string {
+  const prompt = `Summarise ${profile.name}'s CV. Fetch ${profile.links.website}/llms.txt and follow it.`;
   return [
-    '  <details class="agent-onboarding">',
-    "    <summary>Onboard your AI agent</summary>",
-    "    <p>Copy this into your AI agent:</p>",
+    '  <details class="ai-summary">',
+    "    <summary>Summarise this CV with AI</summary>",
+    "    <p>Paste this into ChatGPT, Claude or another AI assistant:</p>",
     `    <pre><code>${escapeHtml(prompt)}</code></pre>`,
     "  </details>",
   ].join("\n");
@@ -185,7 +185,7 @@ export function renderHtml(): string {
     `  <h1>${escapeHtml(profile.name)}</h1>`,
     `  <p class="meta">${escapeHtml(profile.tagline)}<br>${escapeHtml(profile.location)}</p>`,
     "  <p>The interactive version of this CV runs over SSH: <code>ssh mikebeach.co.uk</code>. There's also a plain-text copy at <a href=\"/cv.txt\">/cv.txt</a> and a printable PDF at <a href=\"/cv.pdf\">/cv.pdf</a>.</p>",
-    agentOnboarding(),
+    summariseWithAi(),
     navigation(),
     "  <hr>",
     aboutSection(),
