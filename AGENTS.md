@@ -55,6 +55,49 @@ Use British English spelling in everything you write: site copy, docs, ADRs, cod
 
 Code is the exception, where an API's own spelling wins: `color`, `xterm-256color`, `{grey-fg}` and the like stay exactly as the library spells them.
 
+## Copy style guide
+
+How the CV reads, on every surface. `content.ts` is the source, so these rules apply there; the renderers only lay the words out. This sits on top of the British English rule above and the facts-only rule under _CV content_.
+
+**Tone**
+- Plain and direct. Short factual sentences that read like a professional talking, not a sales pitch and not a chat.
+- No asides, jokes or chatty phrasing ("You're looking at it", "if you'd rather", "it'll land straight in my inbox"), and no filler words ("actually", "practically", "a lot of", "really").
+- This applies to every Visitor-facing string, not just `content.ts`: the intro and contact lines in `html.ts`, the TUI's `sections.ts` and the plain-text footer included.
+
+**Voice**
+- `about` is first person ("I build…"). Highlights drop the "I" and start with a verb ("Built…", "Lead…"). "We" and "our" are fine where the work was a team's.
+- Plain, specific and factual. Prefer a number, a tool or an outcome to an adjective. No buzzwords or self-praise ("passionate", "world-class", "rockstar", "results-driven").
+
+**Tense**
+- The current role uses the present tense for ongoing work ("Lead", "Manage", "Create") and the past tense for things finished ("Set up", "Built", "Coordinated"). Never the "-ing" form as a highlight ("Creating…").
+- Past roles use the past tense throughout.
+
+**Highlights and summaries**
+- One idea per highlight. One sentence where possible; two only when the second adds a number or the reason ("…JavaScript only").
+- Highlights take no full stop at the end, even with two sentences. Summaries and `about` paragraphs are full sentences with full stops.
+- Lead with the strongest highlight for the role, usually the one with a number in it.
+
+**Names and titles**
+- Job titles exactly as the owner gives them, in Title Case ("Front End Developer"). Company and team names exactly as the owner gives them.
+- Name the employer and the company differently. As the employer, in a role's `company` field, it's "Sainsbury's Digital, Tech and Data". In prose about the business, its products or its people, it's "Sainsbury's" ("built the Sainsbury's careers website", "adoption across Sainsbury's and Argos").
+- Products and tools in their own spelling and capitalisation: Next.js, TypeScript, Storybook, Chromatic, Style Dictionary, Figma API, axe-core, Jest, Lighthouse, Evinced, GitHub Actions, Vercel's v0, Umbraco.
+- Named things in their own form: certification levels in Title Case ("Umbraco Level 1 and Level 2"), a named session or programme in straight double quotes ("AI Assisted Engineering").
+
+**Terminology**
+- "front end" as a noun, "front-end" as an adjective ("front-end platforms"); "Front End" only inside a job title. Never "frontend".
+- "design system" is never hyphenated, including as an adjective ("design system adoption"). "Fable Design System" is the product's name.
+- "AI-assisted" is hyphenated as an adjective.
+- Spell out an abbreviation the first time if a non-specialist wouldn't know it ("business-facing (B2B)"). Well-known ones stand alone: UI, UX, CI/CD, WCAG AA, CSS, HTML.
+
+**Punctuation, numbers and dates**
+- No Oxford comma ("React, TypeScript, JavaScript, CSS and Node.js").
+- Numerals for all counts and percentages ("77 releases", "42%").
+- Date ranges use full month names and a spaced en dash ("March 2019 – July 2021"); the current role ends "Present".
+- Straight quotes and apostrophes in `content.ts`; the HTML renderer escapes them.
+
+**Skills**
+- Title Case, the area first and the tools in brackets ("Testing (Jest, axe-core, Lighthouse)"). A slash pairs closely related tools ("React / Next.js").
+
 ## Styles
 
 `src/ui/styles.css` is the only stylesheet, served at `/styles.css` for the HTML page (ADR 0004). Potential employers read it, so treat it as part of the CV:

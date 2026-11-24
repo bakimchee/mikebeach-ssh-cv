@@ -144,7 +144,7 @@ function contactSection(): string {
     `      <li>GitHub: ${link(profile.links.github)}</li>`,
     `      <li>LinkedIn: ${link(profile.links.linkedin)}</li>`,
     "    </ul>",
-    "    <p>There's a contact form in the terminal version, if you'd rather use that.</p>",
+    "    <p>The terminal version also has a contact form.</p>",
     "  </section>",
   ].join("\n");
 }
@@ -165,7 +165,7 @@ export function renderHtml(): string {
     '<div class="container">',
     `  <h1>${escapeHtml(profile.name)}</h1>`,
     `  <p class="meta">${escapeHtml(profile.tagline)}<br>${escapeHtml(profile.location)}</p>`,
-    "  <p>This CV is meant to be read over SSH — run <code>ssh mikebeach.co.uk</code> for the interactive version. There's a markup-free copy at <a href=\"/cv.txt\">/cv.txt</a> and a printable one at <a href=\"/cv.pdf\">/cv.pdf</a>.</p>",
+    "  <p>The interactive version of this CV runs over SSH: <code>ssh mikebeach.co.uk</code>. There's also a plain-text copy at <a href=\"/cv.txt\">/cv.txt</a> and a printable PDF at <a href=\"/cv.pdf\">/cv.pdf</a>.</p>",
     navigation(),
     "  <hr>",
     aboutSection(),
