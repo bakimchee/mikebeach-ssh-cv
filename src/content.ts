@@ -35,7 +35,7 @@ export const profile = {
 
 export const about: string[] = [
   "Engineering manager for the Fable Design System at Sainsbury's, after progressing from software engineer to senior engineer and then into leadership. I build accessible frontend platforms and scale a multi-brand design system across web, iOS and Android. I manage the engineers, and bring AI-assisted development workflows into how we build.",
-  "I care about UI that stays accessible and consistent as it grows: reusable components, design tokens, and the documentation and workflows that get a design system actually adopted. I've worked across JavaScript, TypeScript, CSS and Node.js, and I still like building things end to end. This CV is one of them.",
+  "I care about UI that stays accessible and consistent as it grows: reusable components, design tokens, and the documentation and workflows that get a design system actually adopted. I've worked across React, TypeScript, JavaScript, CSS and Node.js, and I still like building things end to end. This CV is one of them.",
 ];
 
 export const experience: Job[] = [
@@ -47,8 +47,12 @@ export const experience: Job[] = [
       "Moved from software engineering into management, now responsible for the engineers, the technical direction and scaling a multi-brand design system across web, iOS and Android.",
     highlights: [
       "Lead engineering for Fable adoption across Sainsbury's and Argos. In 2025 the team shipped 77 releases, migrated 40 applications to Fable v5 and cut the number of design tokens by 42%",
+      "Continued building Fable's React and TypeScript components for Next.js and React applications",
       "Took Fable beyond web, bringing design tokens and typography to iOS and Android",
       "Set up Style Dictionary to generate design tokens for multiple brands, fed by the Figma API so designers have the source of truth",
+      "Work closely with designers who build design systems in Sketch and Figma",
+      "Built Figma plugins that measure design system adoption in a Figma file, to help the handover from design to development",
+      "Creating AI skills in Figma",
       "Helped introduce the Fable MCP package in January 2026, so AI-assisted tools work from approved components and design tokens",
       "Lead \"AI Assisted Engineering\" demos across engineering at Sainsbury's",
       "Set up our design systems in Vercel's v0, and gave detailed feedback on how it integrated as part of the v0 beta",
@@ -62,6 +66,7 @@ export const experience: Job[] = [
     company: "Sainsbury's Digital, Tech and Data",
     period: "July 2021 – March 2024",
     highlights: [
+      "Built Fable as React components in TypeScript, optimised for use across Next.js and React applications. TypeScript was a main driver, as the previous design system, Luna, was JavaScript only",
       "Took on technical leadership, owning more of the engineering standards, shared components and design-system adoption",
       "Advised engineers and delivery teams on implementation, accessibility, reusable components and migration planning",
       "Used Storybook extensively for the component library, and set up Chromatic for visual regression testing",
@@ -78,6 +83,7 @@ export const experience: Job[] = [
     company: "Sainsbury's",
     period: "March 2019 – July 2021",
     highlights: [
+      "Built in React and TypeScript",
       "Built and maintained customer-facing web experiences on shared component libraries",
       "Contributed reusable components, design tokens, accessibility improvements and engineering documentation",
       "Kept the UI consistent alongside designers, product managers and engineers",
@@ -91,8 +97,9 @@ export const experience: Job[] = [
     summary: "Agency work for a mix of client brands.",
     highlights: [
       "Built front ends for clients including PwC, PPG, Antiques Trade Gazette, Towergate Insurance and Sodexo",
-      "Worked in JavaScript and early TypeScript, building with Angular",
+      "Built with Angular 2 for PwC and AngularJS on other projects, in JavaScript and early TypeScript",
       "Did a lot of the design work in code, alongside the front-end development",
+      "Designed and developed for PPG Europe, using their brand guidelines and existing designed pages to extend their external site, internal sites and business-facing (B2B) sites",
       "Shaped the CMS architecture on Umbraco, and earned official Umbraco level 1 and 2 certifications",
     ],
   },
@@ -102,7 +109,7 @@ export const experience: Job[] = [
     period: "October 2011 – March 2014",
     summary: "Practically a front-end developer, before the term was widely adopted.",
     highlights: [
-      "Designed and mocked up pages in Photoshop and Illustrator",
+      "Designed and mocked up pages in Photoshop and Illustrator, then turned them into HTML, CSS and JavaScript sites. This was my route into development",
       "Built the HTML and CSS templates that the .NET developers worked from",
       "Put together front-end build tooling in Gulp, and added interactivity in JavaScript",
       "Worked on internal Umbraco sites and applications, including the Liverpool City Council intranet, the LDL intranet and recruitment websites",
@@ -140,7 +147,9 @@ export const skills: string[] = [
   "Storybook & Chromatic",
   "Testing (Jest, axe-core, Lighthouse)",
   "CI/CD (GitHub Actions, Vercel)",
+  "React / Next.js",
   "JavaScript / TypeScript",
+  "Figma API & Plugins",
   "CSS & HTML",
   "CMS Architecture",
   "Accessibility (WCAG AA, axe-core, Evinced)",
