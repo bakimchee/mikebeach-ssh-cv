@@ -69,6 +69,16 @@ body {
   padding: 2rem 1rem;
 }
 
+/*
+ * Section dividers: a single thin line. #949494 is the lightest grey that
+ * still meets WCAG's 3:1 contrast for non-text content against white.
+ */
+hr {
+  height: 0;
+  border: 0;
+  border-block-start: 1px solid #949494;
+}
+
 /* The reset removes default margins, so space consecutive elements back out */
 :where(.container) * + * {
   margin-block-start: 0.75em;
