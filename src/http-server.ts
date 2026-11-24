@@ -1,4 +1,6 @@
+import fs from "node:fs";
 import http from "node:http";
+import path from "node:path";
 import { renderPlainText } from "./ui/plainText";
 import { renderHtml } from "./ui/html";
 import { renderPdf } from "./ui/pdf";
@@ -15,6 +17,11 @@ import { renderPdf } from "./ui/pdf";
 const HTML = "text/html; charset=utf-8";
 const TEXT = "text/plain; charset=utf-8";
 const PDF = "application/pdf";
+const CSS = "text/css; charset=utf-8";
+
+// `npm run build` copies styles.css next to the compiled JS, so this path works
+// from both `src/` (tsx in dev) and `dist/` (production).
+const stylesCss = fs.readFileSync(path.join(__dirname, "ui", "styles.css"), "utf8");
 
 const robotsTxt = [
   "# The CV is meant to be read. Crawl away.",
@@ -35,6 +42,7 @@ async function buildRoutes(): Promise<Map<string, { body: string | Buffer; type:
     ["/", { body: renderHtml(), type: HTML }],
     ["/cv.txt", { body: renderPlainText(), type: TEXT }],
     ["/cv.pdf", { body: await renderPdf(), type: PDF }],
+    ["/styles.css", { body: stylesCss, type: CSS }],
     ["/robots.txt", { body: robotsTxt, type: TEXT }],
   ]);
 }

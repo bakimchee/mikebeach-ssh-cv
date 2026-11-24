@@ -55,6 +55,15 @@ Use British English spelling in everything you write: site copy, docs, ADRs, cod
 
 Code is the exception, where an API's own spelling wins: `color`, `xterm-256color`, `{grey-fg}` and the like stay exactly as the library spells them.
 
+## Styles
+
+`src/ui/styles.css` is the only stylesheet, served at `/styles.css` for the HTML page (ADR 0004). Potential employers read it, so treat it as part of the CV:
+
+- Comment every rule or group of rules with what it does and why, not just what it is. The comments are there for someone inspecting the code.
+- Colours and other shared values are design tokens (CSS custom properties) in `:root` at the top of the file. Don't hard-code a colour in a rule.
+- Every colour token states its measured WCAG contrast ratio, and the criterion it meets, in the comment beside it. Re-measure and update the comment when a value changes, in both the light and the `prefers-color-scheme: dark` sets.
+- Keep it minimal: no scripts, no web fonts, no frameworks, and the page must still read fine if the stylesheet never loads.
+
 ## CV content
 
 Only edit `src/content.ts` with facts the owner supplies. Never invent or embellish roles, dates, highlights, projects or skills, and keep the first-person voice in `about`.
