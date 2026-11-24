@@ -234,6 +234,34 @@ article + article {
   margin-block-start: 1.75em;
 }
 
+/*
+ * "Onboard your AI agent". The <details> summary acts as a button with no
+ * script: it opens to show a prompt to copy. It inherits the link colour so
+ * it reads as something to click, at the same contrast as a link.
+ */
+.agent-onboarding > summary {
+  cursor: pointer;
+  color: var(--color-link);
+  font-weight: 600;
+}
+
+.agent-onboarding > summary:hover {
+  color: var(--color-link-hover);
+}
+
+/*
+ * The prompt itself. It wraps on narrow screens instead of scrolling
+ * sideways, and the thin border (the divider token) marks it out as
+ * text to copy.
+ */
+.agent-onboarding pre {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-divider);
+  border-radius: 0.375rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 /* Section dividers: a single thin line */
 hr {
   height: 0;
