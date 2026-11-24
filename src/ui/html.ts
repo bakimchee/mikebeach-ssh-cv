@@ -159,6 +159,9 @@ export function renderHtml(): string {
     `  <title>${escapeHtml(`${profile.name} — ${profile.tagline}`)}</title>`,
     `  <meta name="description" content="${escapeHtml(`${profile.tagline} in ${profile.location}.`)}">`,
     '  <link rel="stylesheet" href="/styles.css">',
+    // Point AI agents and other tools at the machine-readable versions.
+    '  <link rel="alternate" type="application/json" href="/cv.json" title="CV as JSON">',
+    '  <link rel="alternate" type="text/plain" href="/cv.txt" title="CV as plain text">',
     structuredData(),
     "</head>",
     "<body>",

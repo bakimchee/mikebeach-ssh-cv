@@ -5,7 +5,7 @@ An SSH-accessible engineering portfolio/CV, reachable by running `ssh mikebeach.
 ## Language
 
 **Visitor**:
-Anyone who connects to view the portfolio, whether over SSH or in a browser. No authentication is required or performed.
+Anyone who connects to view the portfolio, whether over SSH, in a browser, or as an AI agent or other tool fetching `/cv.json`, `/cv.txt` or `/llms.txt`. No authentication is required or performed.
 _Avoid_: user, client, guest
 
 **Session**:
