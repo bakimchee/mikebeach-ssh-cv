@@ -5,3 +5,8 @@ dist/
 host_key
 host_key.pub
 .claude/
+
+# Tailored CV copies for specific job applications (content.<employer>.ts).
+# They name employers, so they stay out of this public repo. See AGENTS.md.
+src/content.*.ts
+content.*.ts
