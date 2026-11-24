@@ -59,6 +59,11 @@ Code is the exception, where an API's own spelling wins: `color`, `xterm-256colo
 
 How the CV reads, on every surface. `content.ts` is the source, so these rules apply there; the renderers only lay the words out. This sits on top of the British English rule above and the facts-only rule under _CV content_.
 
+**Tone**
+- Plain and direct. Short factual sentences that read like a professional talking, not a sales pitch and not a chat.
+- No asides, jokes or chatty phrasing ("You're looking at it", "if you'd rather", "it'll land straight in my inbox"), and no filler words ("actually", "practically", "a lot of", "really").
+- This applies to every Visitor-facing string, not just `content.ts`: the intro and contact lines in `html.ts`, the TUI's `sections.ts` and the plain-text footer included.
+
 **Voice**
 - `about` is first person ("I build…"). Highlights drop the "I" and start with a verb ("Built…", "Lead…"). "We" and "our" are fine where the work was a team's.
 - Plain, specific and factual. Prefer a number, a tool or an outcome to an adjective. No buzzwords or self-praise ("passionate", "world-class", "rockstar", "results-driven").
@@ -73,7 +78,8 @@ How the CV reads, on every surface. `content.ts` is the source, so these rules a
 - Lead with the strongest highlight for the role, usually the one with a number in it.
 
 **Names and titles**
-- Job titles exactly as the owner gives them, in Title Case ("Front End Developer"). Company and team names exactly as the owner gives them ("Sainsbury's Digital, Tech and Data").
+- Job titles exactly as the owner gives them, in Title Case ("Front End Developer"). Company and team names exactly as the owner gives them.
+- Name the employer and the company differently. As the employer, in a role's `company` field, it's "Sainsbury's Digital, Tech and Data". In prose about the business, its products or its people, it's "Sainsbury's" ("built the Sainsbury's careers website", "adoption across Sainsbury's and Argos").
 - Products and tools in their own spelling and capitalisation: Next.js, TypeScript, Storybook, Chromatic, Style Dictionary, Figma API, axe-core, Jest, Lighthouse, Evinced, GitHub Actions, Vercel's v0, Umbraco.
 - Named things in their own form: certification levels in Title Case ("Umbraco Level 1 and Level 2"), a named session or programme in straight double quotes ("AI Assisted Engineering").
 

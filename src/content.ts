@@ -34,9 +34,9 @@ export const profile = {
 };
 
 export const about: string[] = [
-  "Engineering manager for the Fable Design System at Sainsbury's, after progressing from software engineer to senior engineer and then into leadership. I build accessible front-end platforms and scale a multi-brand design system across web, iOS and Android. I manage the engineers, and bring AI-assisted development workflows into how we build.",
-  "I care about UI that stays accessible and consistent as it grows: reusable components, design tokens, and the documentation and workflows that get a design system actually adopted. I've worked across React, TypeScript, JavaScript, CSS and Node.js, and I still like building things end to end. This CV is one of them.",
-];
+  "I'm an engineering manager leading the Fable Design System at Sainsbury's. I build accessible front-end platforms and scale a multi-brand design system across web, iOS and Android. I manage the engineers and bring AI-assisted development workflows into how we build. I moved into leadership after progressing from software engineer to senior engineer.",
+  "I care about UI that stays accessible and consistent as it grows: reusable components, design tokens, and the documentation and workflows that get a design system adopted. I've worked across React, TypeScript, JavaScript, CSS and Node.js, and still build things end to end, including this CV.",
+]
 
 export const experience: Job[] = [
   {
@@ -80,7 +80,7 @@ export const experience: Job[] = [
   },
   {
     role: "Software Engineer",
-    company: "Sainsbury's",
+    company: "Sainsbury's Digital, Tech and Data",
     period: "March 2019 – July 2021",
     highlights: [
       "Built and maintained customer-facing web experiences in React and TypeScript, on shared component libraries",
@@ -97,7 +97,7 @@ export const experience: Job[] = [
     highlights: [
       "Built front ends for clients including PwC, PPG, Antiques Trade Gazette, Towergate Insurance and Sodexo",
       "Built with Angular 2 for PwC and AngularJS on other projects, in JavaScript and early TypeScript",
-      "Did a lot of the design work in code, alongside the front-end development",
+      "Did much of the design work in code, alongside the front-end development",
       "Designed and developed for PPG Europe, using their brand guidelines and existing designed pages to extend their external site, internal sites and business-facing (B2B) sites",
       "Shaped the CMS architecture on Umbraco, and earned official Umbraco Level 1 and Level 2 certifications",
     ],
@@ -106,13 +106,13 @@ export const experience: Job[] = [
     role: "Trainee Web Designer and Front End Developer",
     company: "Liverpool City Council (LDL)",
     period: "October 2011 – March 2014",
-    summary: "Practically a front-end developer, before the term was widely adopted.",
+    summary: "Started in web design and moved into front-end development, building sites from my own designs.",
     highlights: [
-      "Designed and mocked up pages in Photoshop and Illustrator, then turned them into HTML, CSS and JavaScript sites. This was my route into development",
+      "Designed and mocked up pages in Photoshop and Illustrator, then built them as HTML, CSS and JavaScript sites",
       "Built the HTML and CSS templates that the .NET developers worked from",
       "Put together front-end build tooling in Gulp, and added interactivity in JavaScript",
       "Worked on internal Umbraco sites and applications, including the Liverpool City Council intranet, the LDL intranet and recruitment websites",
-      "First exposure to accessibility",
+      "Got my first exposure to accessibility",
     ],
   },
 ];
@@ -130,7 +130,7 @@ export const projects: Project[] = [
   {
     name: "This CV",
     description:
-      "You're looking at it, or at a PDF rendered from it: a public, unauthenticated SSH server that renders this CV as an interactive TUI, plus a plain HTML page for anyone who'd rather stay in a browser. Run `ssh mikebeach.co.uk` for the interactive version.",
+      "An SSH server that serves this CV as an interactive terminal user interface (TUI), with HTML, plain-text and PDF versions for the browser. It's public and needs no login: run `ssh mikebeach.co.uk`.",
     url: "https://github.com/bakimchee/mikebeach-ssh-cv",
     tech: ["Node.js", "TypeScript", "ssh2", "blessed", "Fly.io"],
   },

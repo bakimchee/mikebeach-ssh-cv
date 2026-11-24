@@ -48,6 +48,6 @@ export function contactInfoText(): string {
     `CV (PDF): {cyan-fg}${profile.links.website}/cv.pdf{/cyan-fg}`,
     `CV (TXT): {cyan-fg}${profile.links.website}/cv.txt{/cyan-fg}`,
     "",
-    "Or leave a message below and it'll land straight in my inbox:",
+    "Or send a message below. It goes straight to my email:",
   ].join("\n");
 }
