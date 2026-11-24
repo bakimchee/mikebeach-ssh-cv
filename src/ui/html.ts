@@ -24,6 +24,15 @@ function link(url: string, text = url): string {
 }
 
 /**
+ * A link that opens in a new tab, so the CV stays open behind it. The hidden
+ * text tells screen reader users about the new tab, which sighted users can
+ * see happen (SC 3.2.5).
+ */
+function newTabLink(url: string, text: string): string {
+  return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(text)}<span class="visually-hidden"> (opens in a new tab)</span></a>`;
+}
+
+/**
  * schema.org Person, so tools reading this page get typed facts instead of
  * having to infer them from the prose — in particular who I currently work for
  * and which "Mike Beach" this is (that's what sameAs is for).
@@ -153,6 +162,11 @@ function contactSection(): string {
  * "Summarise this CV with AI": one prompt a Visitor can paste into an AI
  * assistant, which sends it to `/llms.txt` for instructions. A <details> element gives a
  * button that opens and closes with no script, in keeping with ADR 0004.
+ *
+ * Below the prompt, plain links open Claude or ChatGPT with the prompt already
+ * typed in, via their `?q=` parameter. Neither service documents that
+ * parameter as a supported feature, so if a link stops prefilling, the prompt
+ * above it still works by copy and paste.
  */
 function summariseWithAi(): string {
   const prompt = `Summarise ${profile.name}'s CV. Fetch ${profile.links.website}/llms.txt and follow it.`;
@@ -161,6 +175,7 @@ function summariseWithAi(): string {
     "    <summary>Summarise this CV with AI</summary>",
     "    <p>Paste this into ChatGPT, Claude or another AI assistant:</p>",
     `    <pre><code>${escapeHtml(prompt)}</code></pre>`,
+    `    <p>Or open it in ${newTabLink(`https://claude.ai/new?q=${encodeURIComponent(prompt)}`, "Claude")} or ${newTabLink(`https://chatgpt.com/?q=${encodeURIComponent(prompt)}`, "ChatGPT")}.</p>`,
     "  </details>",
   ].join("\n");
 }
