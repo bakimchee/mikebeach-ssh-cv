@@ -34,7 +34,7 @@ export const profile = {
 };
 
 export const about: string[] = [
-  "I'm an engineering manager at Sainsbury's, leading Fable, the multi-brand design system behind sainsburys.co.uk and argos.co.uk, which get millions of visits a month. A design system is the shared library of components, colours and patterns that product teams build from, so every page looks and works consistently, meets accessibility standards, and teams don't rebuild the same things.",
+  "I'm an engineering manager at Sainsbury's, leading Fable, the multi-brand design system behind sainsburys.co.uk and argos.co.uk, which get millions of visits a month. It's used by 150 applications across Sainsbury's and Argos. A design system is the shared library of components, colours and patterns that product teams build from, so every page looks and works consistently, meets accessibility standards, and teams don't rebuild the same things.",
   "I've grown the team from 2 to 8 engineers across web, iOS and Android, and I bring AI-assisted development into how we build. I moved into leadership after progressing from software engineer to senior engineer. I've worked across React, TypeScript, JavaScript, CSS and Node.js, and still build things end to end, including this CV.",
 ];
 
@@ -46,7 +46,7 @@ export const experience: Job[] = [
     summary:
       "Responsible for the engineers, the technical direction and scaling Fable across web, iOS and Android.",
     highlights: [
-      "Lead engineering for Fable, the multi-brand design system behind sainsburys.co.uk and argos.co.uk, sites with millions of visits a month. In 2025 the team shipped 77 releases, migrated 40 applications to Fable v5 and cut the number of design tokens by 42%",
+      "Lead engineering for Fable, the multi-brand design system behind sainsburys.co.uk and argos.co.uk, used by 150 applications and sites with millions of visits a month. In 2025 the team shipped 77 releases, migrated 40 applications to Fable v5 and cut the number of design tokens by 42%",
       "Grew the team from 2 to 8 engineers across web, iOS and Android, and manage them day to day, including recruitment and development",
       "Continued building Fable's React and TypeScript components for Next.js and React applications, and took Fable to iOS and Android with shared design tokens and typography",
       "Set up Style Dictionary to turn design tokens (shared colour, spacing and type values) from the Figma API into code for multiple brands, so designers have the source of truth",
@@ -54,7 +54,7 @@ export const experience: Job[] = [
       "Made Fable usable by AI coding tools: helped introduce an MCP package in January 2026 (a connector that lets AI tools use only approved components and tokens), and wrote AI skills that guide AI agents through migrations to Fable and onboard them to it",
       "Wrote an AI skill that keeps Vercel's v0, an AI tool that generates UI, on the design system, with evals (automated checks) its output must pass. Gave detailed feedback on v0's design system integration during its beta",
       "Lead \"AI Assisted Engineering\" demos across engineering at Sainsbury's, and create AI skills in Figma",
-      "Coordinated the registry migration for Luna, the previous design system, across the organisation in March and April 2026: found the affected repositories, communicated the risks and tracked it to completion",
+      "Coordinated moving Luna, the previous design system, from a Nexus npm registry to GitHub's npm registry (the services that host its code packages) across the organisation in March and April 2026, communicated the risks and tracked it to completion. Used AI to open issues in 50 affected GitHub repositories, so each team could follow the migration steps by hand or let an AI agent apply them using instructions written for both",
     ],
   },
   {
