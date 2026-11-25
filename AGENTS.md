@@ -78,7 +78,7 @@ How the CV reads, on every surface. `content.ts` is the source, so these rules a
 - Lead with the strongest highlight for the role, usually the one with a number in it.
 
 **Names and titles**
-- Job titles exactly as the owner gives them, in Title Case ("Front End Developer"). Company and team names exactly as the owner gives them.
+- Job titles exactly as the owner gives them, in Title Case ("Front End Developer"). Titles use plain, searchable terms rather than internal names, so recruiters' keyword-scanning tools match them ("Engineering Manager, Design Systems", not "Engineering Manager, Fable Design System"). Company and team names exactly as the owner gives them.
 - Name the employer and the company differently. As the employer, in a role's `company` field, it's "Sainsbury's Digital, Tech and Data". In prose about the business, its products or its people, it's "Sainsbury's" ("built the Sainsbury's careers website", "adoption across Sainsbury's and Argos").
 - Products and tools in their own spelling and capitalisation: Next.js, TypeScript, Storybook, Chromatic, Style Dictionary, Figma API, axe-core, Jest, Lighthouse, Evinced, GitHub Actions, Vercel's v0, Umbraco.
 - Named things in their own form: certification levels in Title Case ("Umbraco Level 1 and Level 2"), a named session or programme in straight double quotes ("AI Assisted Engineering").

@@ -40,7 +40,7 @@ export const about: string[] = [
 
 export const experience: Job[] = [
   {
-    role: "Engineering Manager, Fable Design System",
+    role: "Engineering Manager, Design Systems",
     company: "Sainsbury's Digital, Tech and Data",
     period: "March 2024 – Present",
     summary:
