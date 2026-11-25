@@ -85,7 +85,9 @@ How the CV reads, on every surface. `content.ts` is the source, so these rules a
 
 **Terminology**
 - "front end" as a noun, "front-end" as an adjective ("front-end platforms"); "Front End" only inside a job title. Never "frontend".
-- "design system" is never hyphenated, including as an adjective ("design system adoption"). "Fable Design System" is the product's name.
+- "design system" is never hyphenated, including as an adjective ("design system adoption").
+- Describe the Sainsbury's design system by what it is, not by its internal name: "the multi-brand design system behind sainsburys.co.uk and argos.co.uk" the first time in a section, then "the design system". Internal names (Fable, Luna) mean nothing to hiring managers, so they don't appear on the CV.
+- Websites are written as they appear in a browser's address bar, in lower case ("sainsburys.co.uk").
 - "AI-assisted" is hyphenated as an adjective.
 - Spell out an abbreviation the first time if a non-specialist wouldn't know it ("business-facing (B2B)"). Well-known ones stand alone: UI, UX, CI/CD, WCAG AA, CSS, HTML.
 

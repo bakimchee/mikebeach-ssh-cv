@@ -34,33 +34,33 @@ export const profile = {
 };
 
 export const about: string[] = [
-  "I'm an engineering manager leading the Fable Design System at Sainsbury's. I build accessible front-end platforms and scale a multi-brand design system across web, iOS and Android. I manage the engineers and bring AI-assisted development workflows into how we build. I moved into leadership after progressing from software engineer to senior engineer.",
+  "I'm an engineering manager at Sainsbury's, leading the multi-brand design system behind sainsburys.co.uk and argos.co.uk, which get millions of visits a month. I build accessible front-end platforms and scale the design system across web, iOS and Android. I manage the engineers and bring AI-assisted development workflows into how we build. I moved into leadership after progressing from software engineer to senior engineer.",
   "I care about UI that stays accessible and consistent as it grows: reusable components, design tokens, and the documentation and workflows that get a design system adopted. I've worked across React, TypeScript, JavaScript, CSS and Node.js, and still build things end to end, including this CV.",
 ]
 
 export const experience: Job[] = [
   {
-    role: "Engineering Manager, Fable Design System",
+    role: "Engineering Manager, Design Systems",
     company: "Sainsbury's Digital, Tech and Data",
     period: "March 2024 – Present",
     summary:
       "Moved from software engineering into management, now responsible for the engineers, the technical direction and scaling a multi-brand design system across web, iOS and Android.",
     highlights: [
-      "Lead engineering for Fable adoption across Sainsbury's and Argos. In 2025 the team shipped 77 releases, migrated 40 applications to Fable v5 and cut the number of design tokens by 42%",
-      "Continued building Fable's React and TypeScript components for Next.js and React applications",
-      "Took Fable beyond web, bringing design tokens and typography to iOS and Android",
+      "Lead engineering for the multi-brand design system behind sainsburys.co.uk and argos.co.uk, sites with millions of visits a month. In 2025 the team shipped 77 releases, migrated 40 applications to v5 and cut the number of design tokens by 42%",
+      "Continued building the design system's React and TypeScript components for Next.js and React applications",
+      "Took the design system beyond web, bringing design tokens and typography to iOS and Android",
       "Set up Style Dictionary to generate design tokens for multiple brands, fed by the Figma API so designers have the source of truth",
       "Work closely with designers who build design systems in Sketch and Figma",
       "Built Figma plugins that measure design system adoption in a Figma file, to help the handover from design to development",
       "Create AI skills in Figma",
-      "Helped introduce the Fable MCP package in January 2026, so AI-assisted tools work from approved components and design tokens",
-      "Wrote in-depth AI skills for Fable that guide AI agents through codebase migrations and onboard them to the design system",
+      "Helped introduce the design system's MCP package in January 2026, so AI-assisted tools work from approved components and design tokens",
+      "Wrote in-depth AI skills that guide AI agents through codebase migrations to the design system and onboard them to it",
       "Wrote an AI skill for Vercel's v0 that restricts it to the design system, with a set of evals its output must pass",
       "Lead \"AI Assisted Engineering\" demos across engineering at Sainsbury's",
       "Set up our design systems in Vercel's v0, and gave detailed feedback on how it integrated as part of the v0 beta",
       "Lead work on AI-assisted engineering workflows, design system analytics, platform migrations and adoption measurement",
       "Manage engineers day to day, including recruitment and colleague development",
-      "Coordinated the Luna registry migration across the organisation in March and April 2026: found the affected repositories, communicated the risks and tracked it to completion",
+      "Coordinated the previous design system's registry migration across the organisation in March and April 2026: found the affected repositories, communicated the risks and tracked it to completion",
     ],
   },
   {
@@ -68,7 +68,7 @@ export const experience: Job[] = [
     company: "Sainsbury's Digital, Tech and Data",
     period: "July 2021 – March 2024",
     highlights: [
-      "Built Fable as React components in TypeScript, optimised for use across Next.js and React applications. TypeScript was a main driver, as the previous design system, Luna, was JavaScript only",
+      "Built the design system as React components in TypeScript, optimised for use across Next.js and React applications. TypeScript was a main driver, as the previous design system was JavaScript only",
       "Took on technical leadership, owning more of the engineering standards, shared components and design system adoption",
       "Advised engineers and delivery teams on implementation, accessibility, reusable components and migration planning",
       "Used Storybook extensively for the component library, and set up Chromatic for visual regression testing",
