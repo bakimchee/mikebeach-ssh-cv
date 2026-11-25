@@ -78,14 +78,16 @@ How the CV reads, on every surface. `content.ts` is the source, so these rules a
 - Lead with the strongest highlight for the role, usually the one with a number in it.
 
 **Names and titles**
-- Job titles exactly as the owner gives them, in Title Case ("Front End Developer"). Company and team names exactly as the owner gives them.
+- Job titles exactly as the owner gives them, in Title Case ("Front End Developer"). Titles use plain, searchable terms rather than internal names, so recruiters' keyword-scanning tools match them ("Engineering Manager, Design Systems", not "Engineering Manager, Fable Design System"). Company and team names exactly as the owner gives them.
 - Name the employer and the company differently. As the employer, in a role's `company` field, it's "Sainsbury's Digital, Tech and Data". In prose about the business, its products or its people, it's "Sainsbury's" ("built the Sainsbury's careers website", "adoption across Sainsbury's and Argos").
 - Products and tools in their own spelling and capitalisation: Next.js, TypeScript, Storybook, Chromatic, Style Dictionary, Figma API, axe-core, Jest, Lighthouse, Evinced, GitHub Actions, Vercel's v0, Umbraco.
 - Named things in their own form: certification levels in Title Case ("Umbraco Level 1 and Level 2"), a named session or programme in straight double quotes ("AI Assisted Engineering").
 
 **Terminology**
 - "front end" as a noun, "front-end" as an adjective ("front-end platforms"); "Front End" only inside a job title. Never "frontend".
-- "design system" is never hyphenated, including as an adjective ("design system adoption"). "Fable Design System" is the product's name.
+- "design system" is never hyphenated, including as an adjective ("design system adoption").
+- Internal names (Fable, Luna) mean nothing to a hiring manager on their own, so explain each one the first time it appears in a section: "Fable, the multi-brand design system behind sainsburys.co.uk and argos.co.uk", "Luna, the previous design system". After that, the name alone is fine.
+- Websites are written as they appear in a browser's address bar, in lower case ("sainsburys.co.uk").
 - "AI-assisted" is hyphenated as an adjective.
 - Spell out an abbreviation the first time if a non-specialist wouldn't know it ("business-facing (B2B)"). Well-known ones stand alone: UI, UX, CI/CD, WCAG AA, CSS, HTML.
 
